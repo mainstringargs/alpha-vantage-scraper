@@ -65,7 +65,7 @@ jacocoTestReport {
 
 check.dependsOn jacocoTestReport
 
-bintray {
+/**bintray {
     user = System.getenv('bintray_user') ?: bintray_user
     key = System.getenv('bintray_key') ?: bintray_key
     publish = true //If version should be auto published after an upload
@@ -91,7 +91,7 @@ bintray {
             }
         }
     }
-}
+}*/
 
 
 

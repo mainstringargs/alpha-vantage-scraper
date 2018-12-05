@@ -6,3 +6,4 @@ out/
 .gradle/
 .idea
 *.iml
+/bin/
