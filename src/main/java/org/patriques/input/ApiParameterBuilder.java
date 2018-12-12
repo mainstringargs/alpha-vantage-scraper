@@ -16,7 +16,6 @@ public class ApiParameterBuilder {
    * Append an api paramter to the builder.
    *
    * @param apiParameter the api parameter to append to the url.
-   * @return an instance of this builder.
    */
   public void append(@Nullable ApiParameter apiParameter) {
     if (apiParameter != null) {
@@ -29,7 +28,6 @@ public class ApiParameterBuilder {
    *
    * @param key in the api paramter key value pair.
    * @param value in the api parameter key value pair.
-   * @return an instance of this builder.
    */
   public void append(String key, String value) {
     String parameter = "&" + key + "=" + value;

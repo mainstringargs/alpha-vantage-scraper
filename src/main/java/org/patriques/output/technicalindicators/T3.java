@@ -21,7 +21,7 @@ public class T3 extends TechnicalIndicatorResponse<IndicatorData> {
   }
 
   /**
-   * Creates {@codeT3} instance from json.
+   * Creates T3 instance from json.
    *
    * @param interval specifies how to interpret the date key to the data json object
    * @param json string to parse
