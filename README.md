@@ -15,13 +15,8 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 ## Gradle installation
 
 ```groovy
-repositories {
-    maven {
-        url  "https://dl.bintray.com/patriques82/maven" 
-    }
-}
 dependencies {
-    compile 'org.patriques:alphavantage4j:1.4'
+	compile "io.github.mainstringargs:alpha-vantage:1.1"
 }
 ```
 
