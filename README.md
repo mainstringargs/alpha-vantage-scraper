@@ -2,7 +2,7 @@
 [![codecov](https://codecov.io/gh/patriques82/alphavantage4j/branch/master/graph/badge.svg)](https://codecov.io/gh/patriques82/alphavantage4j)
 [![license](https://img.shields.io/github/license/patriques82/alphavantage4j.svg)](https://github.com/patriques82/alphavantage4j/blob/master/LICENSE)
 
-# alphavantage4j
+# Alpha Vantage Scraper
 
 A Java wrapper to get stock data and stock indicators from the Alpha Vantage API.
 
@@ -16,7 +16,7 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```groovy
 dependencies {
-	compile "io.github.mainstringargs:alpha-vantage:1.1"
+	compile "io.github.mainstringargs:alpha-vantage-scraper:1.1"
 }
 ```
 
