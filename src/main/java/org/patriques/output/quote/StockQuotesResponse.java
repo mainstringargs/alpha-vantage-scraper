@@ -3,7 +3,7 @@ package org.patriques.output.quote;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
-import org.patriques.BatchStockQuotes;
+import org.patriques.StockQuotes;
 import org.patriques.output.AlphaVantageException;
 import org.patriques.output.JsonParser;
 import org.patriques.output.quote.data.StockQuote;
@@ -15,15 +15,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Representation of batch stock quote response from api.
+ * Representation of stock quote response from api.
  *
- * @see BatchStockQuotes
+ * @see StockQuotes
  */
-public class BatchStockQuotesResponse {
+public class StockQuotesResponse {
   private final Map<String, String> metaData;
   private final List<StockQuote> stockQuotes;
 
-  private BatchStockQuotesResponse(final Map<String, String> metaData, final List<StockQuote> stockQuotes) {
+  private StockQuotesResponse(final Map<String, String> metaData, final List<StockQuote> stockQuotes) {
     this.stockQuotes = stockQuotes;
     this.metaData = metaData;
   }
@@ -47,25 +47,25 @@ public class BatchStockQuotesResponse {
   }
 
   /**
-   * Creates {@code BatchStockQuotesResponse} instance from json.
+   * Creates {@code StockQuotesResponse} instance from json.
    *
    * @param json string to parse
-   * @return BatchStockQuotesResponse instance
+   * @return StockQuotesResponse instance
    */
-  public static BatchStockQuotesResponse from(String json)  {
+  public static StockQuotesResponse from(String json)  {
     Parser parser = new Parser();
     return parser.parseJson(json);
   }
 
   /**
-   * Helper class for parsing json to {@code BatchStockQuotesResponse}.
+   * Helper class for parsing json to {@code StockQuotesResponse}.
    *
    * @see JsonParser
    */
-  private static class Parser extends JsonParser<BatchStockQuotesResponse> {
+  private static class Parser extends JsonParser<StockQuotesResponse> {
 
     @Override
-    protected BatchStockQuotesResponse resolve(final JsonObject rootObject) {
+    protected StockQuotesResponse resolve(final JsonObject rootObject) {
       Type metaDataType = new TypeToken<Map<String, String>>() {
       }.getType();
       Type dataType = new TypeToken<List<Map<String, String>>>() {
@@ -80,9 +80,9 @@ public class BatchStockQuotesResponse {
                 getVolume(stockData),
                 LocalDateTime.parse(stockData.get("4. timestamp"), DATE_WITH_TIME_FORMAT)
         )));
-        return new BatchStockQuotesResponse(metaData, stocks);
+        return new StockQuotesResponse(metaData, stocks);
       } catch (JsonSyntaxException e) {
-        throw new AlphaVantageException("BatchStockQuotes api change", e);
+        throw new AlphaVantageException("StockQuotes api change", e);
       }
     }
 

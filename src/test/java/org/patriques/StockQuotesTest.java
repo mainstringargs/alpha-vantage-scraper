@@ -1,7 +1,7 @@
 package org.patriques;
 
 import org.junit.Test;
-import org.patriques.output.quote.BatchStockQuotesResponse;
+import org.patriques.output.quote.StockQuotesResponse;
 import org.patriques.output.quote.data.StockQuote;
 
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class BatchStockQuotesTest {
+public class StockQuotesTest {
 
   @Test
   public void singleStockQuote() {
@@ -32,8 +32,8 @@ public class BatchStockQuotesTest {
             "        }\n" +
             "    ]\n" +
             "}";
-    BatchStockQuotes batchStockQuotes = new BatchStockQuotes(parameters -> json);
-    BatchStockQuotesResponse resp = batchStockQuotes.quote("DUMMY");
+    StockQuotes stockQuotes = new StockQuotes(parameters -> json);
+    StockQuotesResponse resp = stockQuotes.quote("DUMMY");
 
     Map<String, String> metaData = resp.getMetaData();
     assertThat(metaData.get("1. Information"), is(equalTo("Batch Stock Market Quotes")));
@@ -68,8 +68,8 @@ public class BatchStockQuotesTest {
             "        }\n" +
             "    ]\n" +
             "}";
-    BatchStockQuotes batchStockQuotes = new BatchStockQuotes(parameters -> json);
-    BatchStockQuotesResponse resp = batchStockQuotes.quote("DUMMY");
+    StockQuotes stockQuotes = new StockQuotes(parameters -> json);
+    StockQuotesResponse resp = stockQuotes.quote("DUMMY");
 
     List<StockQuote> stockData = resp.getStockQuotes();
     assertThat(stockData.size(), is(equalTo(1)));

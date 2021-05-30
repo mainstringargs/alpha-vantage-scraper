@@ -5,12 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.patriques.AlphaVantageConnector;
-import org.patriques.BatchStockQuotes;
-import org.patriques.output.quote.BatchStockQuotesResponse;
+import org.patriques.StockQuotes;
+import org.patriques.output.quote.StockQuotesResponse;
 import org.patriques.output.quote.data.StockQuote;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class RobinhoodFinanceService.
  */
@@ -21,7 +19,7 @@ public class AlphaVantageFinanceService
   String apiKey = AlphaVantageAPIKey.getAPIKey();
   int timeout = 3000;
   AlphaVantageConnector apiConnector;
-  BatchStockQuotes bsqs;
+  StockQuotes sqs;
 
 
   private boolean isInitialized = false;
@@ -35,7 +33,7 @@ public class AlphaVantageFinanceService
 
     if (!isInitialized) {
       apiConnector = new AlphaVantageConnector(apiKey, timeout);
-      bsqs = new BatchStockQuotes(apiConnector);
+      sqs = new StockQuotes(apiConnector);
       isInitialized = true;
     }
 
@@ -101,7 +99,7 @@ public class AlphaVantageFinanceService
 
     Map<String, Object> stockData = new LinkedHashMap<String, Object>();
 
-    BatchStockQuotesResponse symbolData = bsqs.quote(new String[] {symbol});
+    StockQuotesResponse symbolData = sqs.quote(new String[] {symbol});
 
     stockData.put("Symbol", symbol);
 
