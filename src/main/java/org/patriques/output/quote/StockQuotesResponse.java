@@ -20,30 +20,19 @@ import java.util.Map;
  * @see StockQuotes
  */
 public class StockQuotesResponse {
-  private final Map<String, String> metaData;
-  private final List<StockQuote> stockQuotes;
+  private final StockQuote stockQuote;
 
-  private StockQuotesResponse(final Map<String, String> metaData, final List<StockQuote> stockQuotes) {
-    this.stockQuotes = stockQuotes;
-    this.metaData = metaData;
+  private StockQuotesResponse(final StockQuote stockQuote) {
+    this.stockQuote = stockQuote;
   }
 
   /**
-   * Meta data for response
+   * Gets the StockQuote
    *
-   * @return map of keys and values in json representation of metadata.
+   * @return the {@link StockQuote}
    */
-  public Map<String, String> getMetaData() {
-    return metaData;
-  }
-
-  /**
-   * List of StockQuote
-   *
-   * @return list of {@link StockQuote}
-   */
-  public List<StockQuote> getStockQuotes() {
-    return stockQuotes;
+  public StockQuote getStockQuote() {
+    return stockQuote;
   }
 
   /**
@@ -66,16 +55,11 @@ public class StockQuotesResponse {
 
     @Override
     protected StockQuotesResponse resolve(final JsonObject rootObject) {
-      Type metaDataType = new TypeToken<Map<String, String>>() {
-      }.getType();
-      Type dataType = new TypeToken<List<Map<String, String>>>() {
-      }.getType();
+      Type dataType = new TypeToken<Map<String, String>>() {}.getType();
       try {
-        Map<String, String> metaData = GSON.fromJson(rootObject.get("Meta Data"), metaDataType);
-        List<Map<String, String>> stockQuotes = GSON.fromJson(rootObject.get("Global Quote"), dataType);
-        List<StockQuote> stocks = new ArrayList<>();
-        stockQuotes.forEach(stockData -> stocks.add(newStockQuote(stockData)));
-        return new StockQuotesResponse(metaData, stocks);
+        Map<String, String> stockData = GSON.fromJson(rootObject.get("Global Quote"), dataType);
+        StockQuote stock = newStockQuote(stockData);
+        return new StockQuotesResponse(stock);
       } catch (JsonSyntaxException e) {
         throw new AlphaVantageException("StockQuotes api change", e);
       }
