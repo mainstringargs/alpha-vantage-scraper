@@ -5,14 +5,14 @@ import org.patriques.input.Symbol;
 import org.patriques.output.quote.StockQuotesResponse;
 
 /**
- * The Batch Stock Quotes api provides stock quotes give a list of stock symbols.
+ * The Stock Quotes api provides stock quotes give a list of stock symbols.
  */
 public class StockQuotes {
 
   private final ApiConnector apiConnector;
 
   /**
-   * Constructs a Batch Stock Quotes api endpoint with the help of an {@link ApiConnector}
+   * Constructs a Stock Quotes api endpoint with the help of an {@link ApiConnector}
    *
    * @param apiConnector the connection to the api
    */
