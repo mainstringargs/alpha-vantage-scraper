@@ -2,7 +2,7 @@
 buildscript {
     ext {
         project_name = project.name
-        project_group = 'org.patriques'
+        project_group = 'io.github.mainstringargs'
         project_version = 1.4
     }
     repositories {
@@ -54,7 +54,7 @@ dependencies {
 
 archivesBaseName = 'alpha-vantage-scraper'
 group = 'io.github.mainstringargs'
-version = '1.2.0'
+version = '1.4.0'
 
 
 
