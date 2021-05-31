@@ -73,5 +73,10 @@
 			<artifactId>gson</artifactId>
 			<version>2.8.5</version>
 		</dependency>
+		<dependency>
+			<groupId>io.github.mainstringargs</groupId>
+			<artifactId>stock-data-spi</artifactId>
+			<version>1.1</version>
+		</dependency>
 	</dependencies>
 </project>
