@@ -5,23 +5,41 @@ import java.time.LocalDateTime;
 /**
  * Representation of json object, i.e:
  * {
- *   "1. symbol": "MSFT",
- *   "2. price": "96.3850",
- *   "3. volume": "--",
- *   "4. timestamp": "2018-05-18 15:59:48"
+ *    "01. symbol": "IBM",
+ *    "02. open": "144.2100",
+ *    "03. high": "144.3300",
+ *    "04. low": "143.4850",
+ *    "05. price": "143.7400",
+ *    "06. volume": "2534811",
+ *    "07. latest trading day": "2021-05-28",
+ *    "08. previous close": "143.8200",
+ *    "09. change": "-0.0800",
+ *    "10. change percent": "-0.0556%"
  * }
  */
 public class StockQuote {
   private final String symbol;
+  private final double open;
+  private final double high;
+  private final double low;
   private final double price;
   private final long volume;
-  private final LocalDateTime timestamp;
+  private final LocalDateTime latestTradingDay;
+  private final double previousClose;
+  private final double change;
+  private final double changePercent;
 
-  public StockQuote(final String symbol, final double price, final long volume, final LocalDateTime timestamp) {
+  public StockQuote(String symbol, double open, double high, double low, double price, long volume, LocalDateTime latestTradingDay, double previousClose, double change, double changePercent) {
     this.symbol = symbol;
+    this.open = open;
+    this.high = high;
+    this.low = low;
     this.price = price;
     this.volume = volume;
-    this.timestamp = timestamp;
+    this.latestTradingDay = latestTradingDay;
+    this.previousClose = previousClose;
+    this.change = change;
+    this.changePercent = changePercent;
   }
 
   public String getSymbol() {
@@ -36,7 +54,31 @@ public class StockQuote {
     return volume;
   }
 
-  public LocalDateTime getTimestamp() {
-    return timestamp;
+  public double getOpen() {
+    return open;
+  }
+
+  public double getHigh() {
+    return high;
+  }
+
+  public double getLow() {
+    return low;
+  }
+
+  public LocalDateTime getLatestTradingDay() {
+    return latestTradingDay;
+  }
+
+  public double getPreviousClose() {
+    return previousClose;
+  }
+
+  public double getChange() {
+    return change;
+  }
+
+  public double getChangePercent() {
+    return changePercent;
   }
 }
