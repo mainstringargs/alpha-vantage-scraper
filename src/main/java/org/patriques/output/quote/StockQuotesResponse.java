@@ -9,9 +9,7 @@ import org.patriques.output.JsonParser;
 import org.patriques.output.quote.data.StockQuote;
 
 import java.lang.reflect.Type;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Map;
 
 /**
@@ -74,7 +72,7 @@ public class StockQuotesResponse {
               parseDouble(stockData.get("04. low")),
               parseDouble(stockData.get("05. price")),
               getVolume(stockData),
-              LocalDateTime.parse(stockData.get("07. latest trading day"), DATE_WITH_TIME_FORMAT),
+              LocalDate.parse(stockData.get("07. latest trading day")),
               parseDouble(stockData.get("08. previous close")),
               parseDouble(stockData.get("09. change")),
               getChangePercent(stockData.get("10. change percent"))

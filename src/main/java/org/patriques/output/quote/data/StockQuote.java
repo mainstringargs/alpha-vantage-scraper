@@ -1,6 +1,6 @@
 package org.patriques.output.quote.data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * Representation of json object, i.e:
@@ -24,12 +24,12 @@ public class StockQuote {
   private final double low;
   private final double price;
   private final long volume;
-  private final LocalDateTime latestTradingDay;
+  private final LocalDate latestTradingDay;
   private final double previousClose;
   private final double change;
   private final double changePercent;
 
-  public StockQuote(String symbol, double open, double high, double low, double price, long volume, LocalDateTime latestTradingDay, double previousClose, double change, double changePercent) {
+  public StockQuote(String symbol, double open, double high, double low, double price, long volume, LocalDate latestTradingDay, double previousClose, double change, double changePercent) {
     this.symbol = symbol;
     this.open = open;
     this.high = high;
@@ -66,7 +66,7 @@ public class StockQuote {
     return low;
   }
 
-  public LocalDateTime getLatestTradingDay() {
+  public LocalDate getLatestTradingDay() {
     return latestTradingDay;
   }
 
