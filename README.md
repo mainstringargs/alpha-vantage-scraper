@@ -12,17 +12,50 @@ Alpha Vantage delivers a free API for real time financial data and most used fin
 Vantage (http://www.alphavantage.co/). It requires an api key, that can be requested on http://www.alphavantage.co/support/#api-key. You can have a look at all the api 
 calls available in their documentation http://www.alphavantage.co/documentation.
 
+## Maven installation
+
+```xml
+    <dependency>
+        <groupId>io.github.mainstringargs</groupId>
+        <artifactId>alpha-vantage-scraper</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+```
+
 ## Gradle installation
 
 ```groovy
 dependencies {
-	compile "io.github.mainstringargs:alpha-vantage-scraper:1.1"
+	compile "io.github.mainstringargs:alpha-vantage-scraper:1.2.0"
 }
 ```
 
 ## Usage
 
 Now that you set up your project and have your api key you can start using the service. Here are a few examples of how you can use the service.
+
+#### Global Stock Quotes example
+
+```java
+public class App {
+  public static void main(String[] args) {
+    String apiKey = "50M3AP1K3Y";
+    int timeout = 3000;
+    AlphaVantageConnector apiConnector = new AlphaVantageConnector(apiKey, timeout);
+    StockQuotes stockQuotes = new StockQuotes(apiConnector);
+    
+    try {
+      String symbol = "MSFT";  
+      System.out.println("Stock: " + symbol);
+      StockQuotesResponse response = stockQuotes.quote(symbol);
+      StockQuote stock = response.getStockQuote();
+      System.out.printf("Date: %s Price: %s%n", stock.getLatestTradingDay(), stock.getPrice());
+    } catch (AlphaVantageException e) {
+      System.out.println("something went wrong");
+    }
+  }
+}
+```
 
 #### Time Series example
 ```java

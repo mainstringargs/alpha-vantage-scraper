@@ -5,12 +5,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import org.patriques.AlphaVantageConnector;
-import org.patriques.BatchStockQuotes;
-import org.patriques.output.quote.BatchStockQuotesResponse;
+import org.patriques.StockQuotes;
+import org.patriques.output.quote.StockQuotesResponse;
 import org.patriques.output.quote.data.StockQuote;
 
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class RobinhoodFinanceService.
  */
@@ -21,7 +19,7 @@ public class AlphaVantageFinanceService
   String apiKey = AlphaVantageAPIKey.getAPIKey();
   int timeout = 3000;
   AlphaVantageConnector apiConnector;
-  BatchStockQuotes bsqs;
+  StockQuotes sqs;
 
 
   private boolean isInitialized = false;
@@ -35,7 +33,7 @@ public class AlphaVantageFinanceService
 
     if (!isInitialized) {
       apiConnector = new AlphaVantageConnector(apiKey, timeout);
-      bsqs = new BatchStockQuotes(apiConnector);
+      sqs = new StockQuotes(apiConnector);
       isInitialized = true;
     }
 
@@ -101,16 +99,22 @@ public class AlphaVantageFinanceService
 
     Map<String, Object> stockData = new LinkedHashMap<String, Object>();
 
-    BatchStockQuotesResponse symbolData = bsqs.quote(new String[] {symbol});
+    StockQuotesResponse symbolData = sqs.quote(symbol);
 
     stockData.put("Symbol", symbol);
 
-    List<StockQuote> sqs = symbolData.getStockQuotes();
+    StockQuote sqs = symbolData.getStockQuote();
 
-    if (sqs != null && !sqs.isEmpty()) {
-      stockData.put("Price", sqs.get(0).getPrice());
-      stockData.put("Timestamp", sqs.get(0).getTimestamp());
-      stockData.put("Volume", sqs.get(0).getVolume());
+    if (sqs != null) {
+      stockData.put("Open", sqs.getOpen());
+      stockData.put("High", sqs.getHigh());
+      stockData.put("Low", sqs.getLow());
+      stockData.put("Price", sqs.getPrice());
+      stockData.put("Volume", sqs.getVolume());
+      stockData.put("Latest trading day", sqs.getLatestTradingDay());
+      stockData.put("Previous close", sqs.getPreviousClose());
+      stockData.put("Change", sqs.getChange());
+      stockData.put("Change percent", sqs.getChangePercent());
     }
 
     return stockData;

@@ -14,8 +14,8 @@ public enum Function implements ApiParameter {
   TIME_SERIES_MONTHLY("TIME_SERIES_MONTHLY"),
   TIME_SERIES_MONTHLY_ADJUSTED("TIME_SERIES_MONTHLY_ADJUSTED"),
 
-  // Stock Quotes
-  BATCH_STOCK_QUOTES("BATCH_STOCK_QUOTES"),
+  // Global Stock Quotes
+  GLOBAL_QUOTE("GLOBAL_QUOTE"),
 
   // Foreign Exchange function
   CURRENCY_EXCHANGE_RATE("CURRENCY_EXCHANGE_RATE"),
