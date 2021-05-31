@@ -12,6 +12,16 @@ Alpha Vantage delivers a free API for real time financial data and most used fin
 Vantage (http://www.alphavantage.co/). It requires an api key, that can be requested on http://www.alphavantage.co/support/#api-key. You can have a look at all the api 
 calls available in their documentation http://www.alphavantage.co/documentation.
 
+## Maven installation
+
+```xml
+    <dependency>
+        <groupId>io.github.mainstringargs</groupId>
+        <artifactId>alpha-vantage-scraper</artifactId>
+        <version>1.2.0</version>
+    </dependency>
+```
+
 ## Gradle installation
 
 ```groovy
