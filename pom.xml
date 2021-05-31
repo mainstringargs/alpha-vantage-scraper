@@ -4,17 +4,20 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>io.github.mainstringargs</groupId>
 	<artifactId>alpha-vantage-scraper</artifactId>
-	<version>1.2.0</version>
+	<version>1.4.0</version>
 	<packaging>jar</packaging>
 
-	<name>alphavantage4j</name>
-	<description>alphavantage4j is a java wrapper obtaining financial data from alphavantage.com</description>
+	<name>alpha-vantage-scraper</name>
+	<description>alpha-vantage-scraper is a java wrapper obtaining financial data from alphavantage.com</description>
 	<url>https://github.com/patriques82/alphavantage4j</url>
 	<inceptionYear>2017</inceptionYear>
 
 	<developers>
 		<developer>
 			<name>Patrik Nygren</name>
+		</developer>
+		<developer>
+			<name>main(String[] args)</name>
 		</developer>
 	</developers>
 
