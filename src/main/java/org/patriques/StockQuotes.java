@@ -27,12 +27,8 @@ public class StockQuotes {
    * @param symbols the stock symbols to lookup
    * @return {@link StockQuotesResponse} stock quote data
    */
-  public StockQuotesResponse quote(String... symbols) {
-    if (symbols.length > 100) {
-      throw new AlphaVantageException("Tried to get stock quotes for " + symbols.length + " stocks. The Batch Stock" +
-              " Quotes API will only return quotes for the first 100 symbols.");
-    }
-    String json = apiConnector.getRequest(new Symbols(symbols), Function.GLOBAL_QUOTE);
+  public StockQuotesResponse quote(String symbol) {
+    String json = apiConnector.getRequest(new Symbols(symbol), Function.GLOBAL_QUOTE);
     return StockQuotesResponse.from(json);
   }
 }

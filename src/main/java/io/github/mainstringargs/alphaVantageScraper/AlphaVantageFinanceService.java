@@ -99,7 +99,7 @@ public class AlphaVantageFinanceService
 
     Map<String, Object> stockData = new LinkedHashMap<String, Object>();
 
-    StockQuotesResponse symbolData = sqs.quote(new String[] {symbol});
+    StockQuotesResponse symbolData = sqs.quote(symbol);
 
     stockData.put("Symbol", symbol);
 
