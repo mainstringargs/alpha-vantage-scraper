@@ -1,8 +1,7 @@
 package org.patriques;
 
 import org.patriques.input.Function;
-import org.patriques.input.Symbols;
-import org.patriques.output.AlphaVantageException;
+import org.patriques.input.Symbol;
 import org.patriques.output.quote.StockQuotesResponse;
 
 /**
@@ -24,11 +23,11 @@ public class StockQuotes {
   /**
    * This API returns stock quotes updated realtime.
    *
-   * @param symbols the stock symbols to lookup
+   * @param symbol the stock symbol to lookup
    * @return {@link StockQuotesResponse} stock quote data
    */
   public StockQuotesResponse quote(String symbol) {
-    String json = apiConnector.getRequest(new Symbols(symbol), Function.GLOBAL_QUOTE);
+    String json = apiConnector.getRequest(new Symbol(symbol), Function.GLOBAL_QUOTE);
     return StockQuotesResponse.from(json);
   }
 }
