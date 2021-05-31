@@ -16,7 +16,7 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```groovy
 dependencies {
-	compile "io.github.mainstringargs:alpha-vantage-scraper:1.1"
+	compile "io.github.mainstringargs:alpha-vantage-scraper:1.2.0"
 }
 ```
 
