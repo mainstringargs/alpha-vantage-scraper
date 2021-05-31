@@ -106,9 +106,15 @@ public class AlphaVantageFinanceService
     List<StockQuote> sqs = symbolData.getStockQuotes();
 
     if (sqs != null && !sqs.isEmpty()) {
+      stockData.put("Open", sqs.get(0).getOpen());
+      stockData.put("High", sqs.get(0).getHigh());
+      stockData.put("Low", sqs.get(0).getLow());
       stockData.put("Price", sqs.get(0).getPrice());
-      stockData.put("Timestamp", sqs.get(0).getTimestamp());
       stockData.put("Volume", sqs.get(0).getVolume());
+      stockData.put("Latest trading day", sqs.get(0).getLatestTradingDay());
+      stockData.put("Previous close", sqs.get(0).getPreviousClose());
+      stockData.put("Change", sqs.get(0).getChange());
+      stockData.put("Change percent", sqs.get(0).getChangePercent());
     }
 
     return stockData;
