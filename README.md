@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/patriques82/alphavantage4j.svg?branch=master)](https://travis-ci.org/patriques82/alphavantage4j) [![Maven Central](https://img.shields.io/maven-central/v/io.github.mainstringargs/alpha-vantage-scraper.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.mainstringargs%22%20AND%20a:%22alpha-vantage-scraper%22)
-[![license](https://img.shields.io/github/license/patriques82/alphavantage4j.svg)](https://github.com/patriques82/alphavantage4j/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/mainstringargs/alpha-vantage-scraper.svg)](https://github.com/mainstringargs/alpha-vantage-scraper/blob/master/LICENSE)
 
 # Alpha Vantage Scraper
 
