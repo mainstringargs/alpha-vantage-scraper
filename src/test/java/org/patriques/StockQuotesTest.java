@@ -5,8 +5,6 @@ import org.patriques.output.quote.StockQuotesResponse;
 import org.patriques.output.quote.data.StockQuote;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -18,13 +16,7 @@ public class StockQuotesTest {
   public void singleStockQuote() {
     String json = "" +
             "{\n" +
-            "    \"Meta Data\": {\n" +
-            "        \"1. Information\": \"Stock Market Quotes\",\n" +
-            "        \"2. Notes\": \"IEX Real-Time Price provided for free by IEX (https://iextrading.com/developer/).\",\n" +
-            "        \"3. Time Zone\": \"US/Eastern\"\n" +
-            "    },\n" +
-            "    \"Global Quote\": [\n" +
-            "        {\n" +
+            "    \"Global Quote\": {\n" +
             "            \"01. symbol\": \"MSFT\",\n" +
             "            \"02. open\": \"250.9950\",\n" +
             "            \"03. high\": \"252.0800\",\n" +
@@ -36,20 +28,11 @@ public class StockQuotesTest {
             "            \"09. change\": \"0.3700\",\n" +
             "            \"10. change percent\": \"0.1484%\"\n" +
             "        }\n" +
-            "    ]\n" +
             "}";
     StockQuotes stockQuotes = new StockQuotes(parameters -> json);
     StockQuotesResponse resp = stockQuotes.quote("DUMMY");
 
-    Map<String, String> metaData = resp.getMetaData();
-    assertThat(metaData.get("1. Information"), is(equalTo("Stock Market Quotes")));
-    assertThat(metaData.get("2. Notes"), is(equalTo("IEX Real-Time Price provided for free by IEX (https://iextrading.com/developer/).")));
-    assertThat(metaData.get("3. Time Zone"), is(equalTo("US/Eastern")));
-
-    List<StockQuote> stockData = resp.getStockQuotes();
-    assertThat(stockData.size(), is(equalTo(1)));
-
-    StockQuote stockQuote = stockData.get(0);
+    StockQuote stockQuote = resp.getStockQuote();
     assertThat(stockQuote.getSymbol(), is(equalTo("MSFT")));
     assertThat(stockQuote.getOpen(), is(equalTo(250.9950)));
     assertThat(stockQuote.getHigh(), is(equalTo(252.0800)));
@@ -66,27 +49,17 @@ public class StockQuotesTest {
   public void stockNoVolume() {
     String json = "" +
             "{\n" +
-            "    \"Meta Data\": {\n" +
-            "        \"1. Information\": \"Stock Market Quotes\",\n" +
-            "        \"2. Notes\": \"IEX Real-Time Price provided for free by IEX (https://iextrading.com/developer/).\",\n" +
-            "        \"3. Time Zone\": \"US/Eastern\"\n" +
-            "    },\n" +
-            "    \"Global Quote\": [\n" +
-            "        {\n" +
+            "    \"Global Quote\": {\n" +
             "            \"01. symbol\": \"MSFT\",\n" +
             "            \"02. price\": \"96.3850\",\n" +
             "            \"06. volume\": \"--\",\n" +
             "            \"07. latest trading day\": \"2018-05-18 15:59:48\"\n" +
             "        }\n" +
-            "    ]\n" +
             "}";
     StockQuotes stockQuotes = new StockQuotes(parameters -> json);
     StockQuotesResponse resp = stockQuotes.quote("DUMMY");
 
-    List<StockQuote> stockData = resp.getStockQuotes();
-    assertThat(stockData.size(), is(equalTo(1)));
-
-    StockQuote stockQuote = stockData.get(0);
+    StockQuote stockQuote = resp.getStockQuote();
     assertThat(stockQuote.getVolume(), is(equalTo(0L)));
   }
 }
