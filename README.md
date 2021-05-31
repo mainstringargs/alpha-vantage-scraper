@@ -34,6 +34,29 @@ dependencies {
 
 Now that you set up your project and have your api key you can start using the service. Here are a few examples of how you can use the service.
 
+#### Global Stock Quotes example
+
+```java
+public class App {
+  public static void main(String[] args) {
+    String apiKey = "50M3AP1K3Y";
+    int timeout = 3000;
+    AlphaVantageConnector apiConnector = new AlphaVantageConnector(apiKey, timeout);
+    StockQuotes stockQuotes = new StockQuotes(apiConnector);
+    
+    try {
+      String symbol = "MSFT";  
+      System.out.println("Stock: " + symbol);
+      StockQuotesResponse response = stockQuotes.quote(symbol);
+      StockQuote stock = response.getStockQuote();
+      System.out.printf("Date: %s Price: %s%n", stock.getLatestTradingDay(), stock.getPrice());
+    } catch (AlphaVantageException e) {
+      System.out.println("something went wrong");
+    }
+  }
+}
+```
+
 #### Time Series example
 ```java
 public class App {
