@@ -6,12 +6,12 @@ package io.github.mainstringargs.alphaVantageScraper;
  */
 public class AlphaVantageAPIKey {
 
-  /**
-   * Gets the API key.
-   *
-   * @return the API key
-   */
-  public static String getAPIKey() {
-    return AlphaVantageScraperProperties.getProperty("alpha-vantage-api-key", "");
-  }
+    /**
+     * Gets the API key.
+     *
+     * @return the API key
+     */
+    public static String getAPIKey() {
+        return AlphaVantageScraperProperties.getProperty("alpha-vantage-api-key", "");
+    }
 }
