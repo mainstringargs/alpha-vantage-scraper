@@ -5,6 +5,10 @@
 
 A Java wrapper to get stock data and stock indicators from the Alpha Vantage API.
 
+## Credit
+
+This project started as a fork of https://github.com/patriques82/alphavantage4j which has since been abandoned.  Their initial work was amazing!
+
 ## Introduction
 
 Alpha Vantage delivers a free API for real time financial data and most used finance indicators. This library implements a wrapper to the free API provided by Alpha
