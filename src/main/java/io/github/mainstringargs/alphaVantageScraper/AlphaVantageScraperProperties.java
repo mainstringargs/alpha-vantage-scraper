@@ -10,31 +10,31 @@ import java.util.Properties;
  */
 public class AlphaVantageScraperProperties {
 
-  /** The property file. */
-  private static Properties propertyFile;
+    /** The property file. */
+    private static Properties propertyFile;
 
-  static {
-    InputStream is =
-        AlphaVantageScraperProperties.class.getResourceAsStream("/alpha-vantage-scraper.properties");
-    propertyFile = new Properties();
-    try {
-      propertyFile.load(is);
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
+    static {
+        InputStream is = AlphaVantageScraperProperties.class
+                        .getResourceAsStream("/alpha-vantage-scraper.properties");
+        propertyFile = new Properties();
+        try {
+            propertyFile.load(is);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
     }
 
-  }
-
-  /**
-   * Gets the property.
-   *
-   * @param key the key
-   * @param defaultValue the default value
-   * @return the property
-   */
-  public static String getProperty(String key, String defaultValue) {
-    return propertyFile.getProperty(key, defaultValue);
-  }
+    /**
+     * Gets the property.
+     *
+     * @param key the key
+     * @param defaultValue the default value
+     * @return the property
+     */
+    public static String getProperty(String key, String defaultValue) {
+        return propertyFile.getProperty(key, defaultValue);
+    }
 
 }
