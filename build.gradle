@@ -2,7 +2,7 @@
 buildscript {
     ext {
         project_name = project.name
-        project_group = 'io.github.mainstringargs'
+        project_group = 'io.github.mainstringargs.alphavantagescraper'
         project_version = 1.4
     }
     repositories {
@@ -53,7 +53,7 @@ dependencies {
 }
 
 archivesBaseName = 'alpha-vantage-scraper'
-group = 'io.github.mainstringargs'
+group = 'io.github.mainstringargs.alphavantagescraper'
 version = '1.5.0'
 
 
@@ -99,5 +99,5 @@ nexus {
 }
 
 nexusStaging {
-    packageGroup = "io.github.mainstringargs" //optional if packageGroup == project.getGroup()
+    packageGroup = "io.github.mainstringargs.alphavantagescraper" //optional if packageGroup == project.getGroup()
 }
