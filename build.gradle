@@ -3,7 +3,7 @@ buildscript {
     ext {
         project_name = project.name
         project_group = 'io.github.mainstringargs.alphavantagescraper'
-        project_version = 1.5.1
+        project_version = 1.5
     }
     repositories {
         jcenter()
