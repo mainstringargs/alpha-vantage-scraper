@@ -19,9 +19,9 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```xml
     <dependency>
-        <groupId>io.github.mainstringargs</groupId>
+        <groupId>io.github.mainstringargs.alphavantagescraper</groupId>
         <artifactId>alpha-vantage-scraper</artifactId>
-        <version>1.5.0</version>
+        <version>1.5.1</version>
     </dependency>
 ```
 
@@ -29,7 +29,7 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```groovy
 dependencies {
-	compile "io.github.mainstringargs:alpha-vantage-scraper:1.5.0"
+	compile "io.github.mainstringargs.alphavantagescraper:alpha-vantage-scraper:1.5.0"
 }
 ```
 
