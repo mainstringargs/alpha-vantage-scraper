@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/patriques82/alphavantage4j.svg?branch=master)](https://travis-ci.org/patriques82/alphavantage4j) [![Maven Central](https://img.shields.io/maven-central/v/io.github.mainstringargs/alpha-vantage-scraper.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.mainstringargs%22%20AND%20a:%22alpha-vantage-scraper%22)
+[![Build Status](https://travis-ci.org/patriques82/alphavantage4j.svg?branch=master)](https://travis-ci.org/patriques82/alphavantage4j) [![Maven Central](https://img.shields.io/maven-central/v/io.github.mainstringargs.alphavantagescraper/alpha-vantage-scraper.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.mainstringargs%22%20AND%20a:%22alpha-vantage-scraper%22)
 [![license](https://img.shields.io/github/license/mainstringargs/alpha-vantage-scraper.svg)](https://github.com/mainstringargs/alpha-vantage-scraper/blob/master/LICENSE)
 
 # Alpha Vantage Scraper
@@ -19,9 +19,9 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```xml
     <dependency>
-        <groupId>io.github.mainstringargs</groupId>
+        <groupId>io.github.mainstringargs.alphavantagescraper</groupId>
         <artifactId>alpha-vantage-scraper</artifactId>
-        <version>1.5.0</version>
+        <version>1.5.1</version>
     </dependency>
 ```
 
@@ -29,7 +29,7 @@ calls available in their documentation http://www.alphavantage.co/documentation.
 
 ```groovy
 dependencies {
-	compile "io.github.mainstringargs:alpha-vantage-scraper:1.5.0"
+	compile "io.github.mainstringargs.alphavantagescraper:alpha-vantage-scraper:1.5.1"
 }
 ```
 
